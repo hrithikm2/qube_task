@@ -12,7 +12,7 @@ class CurrentDayContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
-      width: W(context) * 11,
+      width: W(context) * 10,
       height: 80,
       decoration: BoxDecoration(
           boxShadow: const [

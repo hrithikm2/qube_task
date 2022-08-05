@@ -37,7 +37,6 @@ class HomeView extends GetView<HomeController> {
               elevation: 0,
             ),
             body: ListView(
-              shrinkWrap: true,
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0),

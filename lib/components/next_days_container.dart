@@ -11,8 +11,8 @@ class NextDaysContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 5),
-      width: W(context) * 11,
+      margin: const EdgeInsets.only(right: 10),
+      width: W(context) * 10,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -20,14 +20,14 @@ class NextDaysContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: day.text.size(15).make(),
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: date.text.size(15).make(),
           )
         ],

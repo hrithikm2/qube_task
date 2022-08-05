@@ -136,10 +136,10 @@ class HomeController extends GetxController {
   }
 
   Future<void> openUrl() async {
-    if (await canLaunchUrlString(
-        ufm.value.data?.videoArr?[0].youtubeUrl ?? "")) {
+    try {
       launchUrlString(ufm.value.data?.videoArr?[0].youtubeUrl ?? "");
-    } else {
+    } catch (e) {
+      print(e);
       Get.snackbar("Something went wrong, please try again", "",
           snackPosition: SnackPosition.BOTTOM,
           colorText: Colors.white,
