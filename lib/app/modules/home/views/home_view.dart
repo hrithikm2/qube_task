@@ -184,7 +184,9 @@ class HomeView extends GetView<HomeController> {
                         padding: (index == 0)
                             ? const EdgeInsets.only(left: 24)
                             : EdgeInsets.zero,
-                        child: Container(
+                        child: GestureDetector(
+                          onTap: () => controller.openUrl(),
+                          child: Container(
                             height: 128,
                             width: 208,
                             decoration: const BoxDecoration(
@@ -193,12 +195,11 @@ class HomeView extends GetView<HomeController> {
                                     image: AssetImage(
                                       workoutImage,
                                     ))),
-                            child: GestureDetector(
-                              onTap: () => controller.openUrl(),
-                              child: Center(
-                                child: Image.asset(youtubeImage),
-                              ),
-                            )),
+                            child: Center(
+                              child: Image.asset(youtubeImage),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
