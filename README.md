@@ -1,16 +1,14 @@
 # qube_task
 
-A new Flutter project.
+A Flutter Project created using GET_CLI and managed using GETX state management.
+
+PS: Some things may differ in looks based on data fetched by the API. For instance, the feeling percentages bar will be shown translucent, this is because I think if the feeling percentage is 0, that widget is considered to be OFF. If there is any change in % the value of feelings, it will be opaque and visible as intended.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Ensure that you run :
+ flutter pub run build_runner build --delete-conflicting-outputs.
+ and, 
+ flutter pub get
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+And you are good to go!!
