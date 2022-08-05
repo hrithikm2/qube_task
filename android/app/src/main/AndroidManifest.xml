@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qube.qube_task.qube_task">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="qube_task"
         android:name="${applicationName}"
