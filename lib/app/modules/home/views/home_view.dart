@@ -214,7 +214,7 @@ class HomeView extends GetView<HomeController> {
               height: double.maxFinite,
               width: double.maxFinite,
               color: appGreen.withOpacity(0.5),
-              child: const CircularProgressIndicator.adaptive(),
+              child: const Center(child: CircularProgressIndicator.adaptive()),
             ),
           ),
         )
