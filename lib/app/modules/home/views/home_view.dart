@@ -6,6 +6,10 @@ import 'package:intl/intl.dart';
 import 'package:qube_task/constants/app_images.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../../../../components/current_day_container.dart';
+import '../../../../components/faded_feeling_container.dart';
+import '../../../../components/feeling_container.dart';
+import '../../../../components/next_days_container.dart';
 import '../../../../constants/app_constants.dart';
 import '../controllers/home_controller.dart';
 
@@ -47,132 +51,26 @@ class HomeView extends GetView<HomeController> {
                         child: GetBuilder<HomeController>(
                           init: HomeController(),
                           builder: (value) => ListView.builder(
-                            padding: EdgeInsets.zero,
-                            itemCount: homeController.userFeelingsData.length,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) => (controller
-                                        .userFeelingsData[index]['value'] ==
-                                    0)
-                                ? Opacity(
-                                    opacity: 0.3,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 5),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            height: H(context) * 10,
-                                            width: W(context) * 10,
-                                            decoration: BoxDecoration(
-                                                boxShadow: const [
-                                                  BoxShadow(
-                                                      color: Vx.gray200,
-                                                      blurRadius: 6.0,
-                                                      offset: Offset(5, 4)),
-                                                ],
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                color: feeling_container_color),
-                                            child: Column(
-                                              children: [
-                                                SizedBox(
-                                                    height: H(context) * 5,
-                                                    child: ""
-                                                        .text
-                                                        .size(12)
-                                                        .fontWeight(
-                                                            FontWeight.w200)
-                                                        .makeCentered()),
-                                                Container(
-                                                  alignment:
-                                                      Alignment.bottomCenter,
-                                                  height: H(context) * 5,
-                                                  width: H(context) * 5,
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    color: appGreen,
-                                                  ),
-                                                  child: Center(
-                                                    child: ExtendedImage.asset(
-                                                        '${controller.userFeelingsData[index]['image_url']}',
-                                                        colorBlendMode:
-                                                            BlendMode.darken),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          4.heightBox,
-                                          "${controller.userFeelingsData[index]['title']}"
-                                              .text
-                                              .makeCentered()
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                : Padding(
-                                    padding: const EdgeInsets.only(right: 5),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          height: H(context) * 10,
-                                          width: W(context) * 10,
-                                          decoration: BoxDecoration(
-                                              boxShadow: const [
-                                                BoxShadow(
-                                                    color: Vx.gray200,
-                                                    blurRadius: 6.0,
-                                                    offset: Offset(5, 4)),
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                              color: feeling_container_color),
-                                          child: Column(
-                                            children: [
-                                              SizedBox(
-                                                  height: H(context) * 5,
-                                                  child:
-                                                      "${controller.userFeelingsData[index]['value']}%"
-                                                          .text
-                                                          .size(12)
-                                                          .fontWeight(
-                                                              FontWeight.w200)
-                                                          .makeCentered()),
-                                              Container(
-                                                alignment:
-                                                    Alignment.bottomCenter,
-                                                height: H(context) * 5,
-                                                width: H(context) * 5,
-                                                decoration: const BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  color: appGreen,
-                                                ),
-                                                child: Center(
-                                                  child: ExtendedImage.asset(
-                                                      '${controller.userFeelingsData[index]['image_url']}',
-                                                      colorBlendMode:
-                                                          BlendMode.darken),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        4.heightBox,
-                                        "${controller.userFeelingsData[index]['title']}"
-                                            .text
-                                            .makeCentered()
-                                      ],
-                                    ),
-                                  ),
-                          ),
+                              padding: EdgeInsets.zero,
+                              itemCount: homeController.userFeelingsData.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) => (controller
+                                          .userFeelingsData[index]['value'] ==
+                                      "0")
+                                  ? FadedFeelingContainer(
+                                      title: controller.userFeelingsData[index]
+                                          ['title'],
+                                      imageUrl: controller
+                                          .userFeelingsData[index]['image_url'],
+                                    )
+                                  : FeelingContainer(
+                                      imageUrl: controller
+                                          .userFeelingsData[index]['image_url'],
+                                      title: controller.userFeelingsData[index]
+                                          ['title'],
+                                      value: controller.userFeelingsData[index]
+                                          ['value'],
+                                    )),
                         ),
                       ),
                       10.heightBox,
@@ -200,87 +98,20 @@ class HomeView extends GetView<HomeController> {
                       SizedBox(
                         height: H(context) * 10,
                         child: ListView.builder(
-                          padding: EdgeInsets.zero,
-                          itemCount: 7,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => (DateFormat('E')
-                                      .format(DateTime.now()) ==
-                                  controller.dateInfo?[index]['day'])
-                              ? Container(
-                                  margin: const EdgeInsets.only(right: 10),
-                                  width: W(context) * 11,
-                                  height: 80,
-                                  decoration: BoxDecoration(
-                                      boxShadow: const [
-                                        BoxShadow(
-                                            color: Color.fromARGB(1, 0, 0, 0),
-                                            blurRadius: 25.0,
-                                            offset: Offset(2, 2)),
-                                      ],
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: const Color(0xff4f4f4f)),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        flex: 2,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child:
-                                              "${controller.dateInfo?[index]["day"]}"
-                                                  .text
-                                                  .size(15)
-                                                  .color(
-                                                      const Color(0xffa7a7a7))
-                                                  .make(),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 3,
-                                        child:
-                                            "${controller.dateInfo?[index]["date"]}"
-                                                .text
-                                                .size(15)
-                                                .white
-                                                .make(),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              : Container(
-                                  margin: const EdgeInsets.only(right: 5),
-                                  width: W(context) * 11,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        flex: 1,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child:
-                                              "${controller.dateInfo?[index]["day"]}"
-                                                  .text
-                                                  .size(15)
-                                                  .make(),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 2,
-                                        child:
-                                            "${controller.dateInfo?[index]["date"]}"
-                                                .text
-                                                .size(15)
-                                                .make(),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                        ),
+                            padding: EdgeInsets.zero,
+                            itemCount: 7,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) => (DateFormat('E')
+                                        .format(DateTime.now()) ==
+                                    controller.dateInfo?[index]['day'])
+                                ? CurrentDayContainer(
+                                    date: controller.dateInfo?[index]['date'],
+                                    day: controller.dateInfo?[index]['day'],
+                                  )
+                                : NextDaysContainer(
+                                    date: controller.dateInfo?[index]['date'],
+                                    day: controller.dateInfo?[index]['day'],
+                                  )),
                       ),
                       10.heightBox,
                     ],

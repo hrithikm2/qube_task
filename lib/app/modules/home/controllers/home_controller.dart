@@ -20,43 +20,43 @@ class HomeController extends GetxController {
       "id": 1,
       "image_url": "assets/images/energetic.png",
       "title": "Energetic",
-      "value": 30
+      "value": "30"
     },
     {
       "id": 2,
       "image_url": "assets/images/sad.png",
       "title": "Sad",
-      "value": 10
+      "value": "10"
     },
     {
       "id": 3,
       "image_url": "assets/images/happy.png",
       "title": "Happy",
-      "value": 40
+      "value": "40"
     },
     {
       "id": 4,
       "image_url": "assets/images/angry.png",
       "title": "Angry",
-      "value": 1
+      "value": "1"
     },
     {
       "id": 5,
       "image_url": "assets/images/calm.png",
       "title": "Calm",
-      "value": 0
+      "value": "0"
     },
     {
       "id": 6,
       "image_url": "assets/images/bored.png",
       "title": "Bored",
-      "value": 0
+      "value": "0"
     },
     {
       "id": 7,
       "image_url": "assets/images/love.png",
       "title": "Love",
-      "value": 0
+      "value": "0"
     },
   ];
 
@@ -92,43 +92,43 @@ class HomeController extends GetxController {
         "id": 1,
         "image_url": "assets/images/energetic.png",
         "title": "Energetic",
-        "value": ufm.value.data?.feelingPercentage?.energetic
+        "value": ufm.value.data?.feelingPercentage?.energetic.toString()
       },
       {
         "id": 2,
         "image_url": "assets/images/sad.png",
         "title": "Sad",
-        "value": ufm.value.data?.feelingPercentage?.sad
+        "value": ufm.value.data?.feelingPercentage?.sad.toString()
       },
       {
         "id": 3,
         "image_url": "assets/images/happy.png",
         "title": "Happy",
-        "value": ufm.value.data?.feelingPercentage?.happy
+        "value": ufm.value.data?.feelingPercentage?.happy.toString()
       },
       {
         "id": 4,
         "image_url": "assets/images/angry.png",
         "title": "Angry",
-        "value": ufm.value.data?.feelingPercentage?.angry
+        "value": ufm.value.data?.feelingPercentage?.angry.toString()
       },
       {
         "id": 5,
         "image_url": "assets/images/calm.png",
         "title": "Calm",
-        "value": ufm.value.data?.feelingPercentage?.calm
+        "value": ufm.value.data?.feelingPercentage?.calm.toString()
       },
       {
         "id": 6,
         "image_url": "assets/images/bored.png",
         "title": "Bored",
-        "value": ufm.value.data?.feelingPercentage?.bored
+        "value": ufm.value.data?.feelingPercentage?.bored.toString()
       },
       {
         "id": 7,
         "image_url": "assets/images/love.png",
         "title": "Love",
-        "value": 0
+        "value": "0"
       },
     ];
     update();
